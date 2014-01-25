@@ -27,12 +27,13 @@ public class PatternRecognition {
              trainingSets = new TrainingData(trainingDataSets, numTrainingSets);
         }catch(InvalidImageFormatException e){
             System.out.println("Image format error: please file formatting.");
+            System.exit(1);
         }catch(IOException e){
             System.out.println("File read error: file does not exist, has insufficient permissions, or had unexpected difficulties while reading.");
+            System.exit(2);
         }
-        if(trainingSets!=null){
-            
-        }
+        
+    
         
     }
     

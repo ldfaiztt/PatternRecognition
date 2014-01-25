@@ -16,10 +16,8 @@ import java.io.FileNotFoundException;
  */
 public class TrainingData {
     ArrayList<ArrayList<Letter>> trainingSets;
-    ArrayList<Histogram> setHistograms;
     public TrainingData(String[] trainingSetFilenames, int numTrainingSets) throws InvalidImageFormatException, IOException{
         trainingSets = new ArrayList<>();
-        setHistograms = new ArrayList<>();
         //
         for(int i = 0; i < trainingSetFilenames.length; i++){
             for(int j = 0; j < numTrainingSets; j++){

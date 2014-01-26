@@ -11,18 +11,10 @@ public class PatternRecognition {
 
     private static final int numTrainingSets = 1;
     public static void main(String[] args) {
-//        BufferedReader Ereader = new BufferedReader(new FileReader("HW1_e.txt"));
-//        BufferedReader Creader = new BufferedReader(new FileReader("HW1_C.txt"));
-//        ArrayList<Letter> eList = readBuffer(Ereader);
-//        ArrayList<Letter> cList = readBuffer(Creader);
-//        Histogram eHist = new Histogram();
-//        Histogram cHist = new Histogram();
-//        String trainingDataSet1="data/HW2_data_c_";
-//        String trainingDataSet2="data/HW2_data_e_";
+        partA();
+    }
+    public static void partA(){
         String[] dataSetNames = {"data/HW2_data_c_", "data/HW2_data_e_"};
-//        trainingDataSets[0] = trainingDataSet1;
-//        trainingDataSets[1] = trainingDataSet2;
-        //Dataset trainingSets=null;
         Dataset[] datasets = new Dataset[10];
         try{
              //trainingSets = new Dataset(dataSetNames, numTrainingSets, 1);
@@ -68,6 +60,7 @@ public class PatternRecognition {
         }
         double standardError = java.lang.Math.sqrt(sumOfSquaredDifferences/(9-1));
         System.out.format("Mean error: %.4f, Standard error: %.4f\n", mean, standardError);
+        
         
     }
     

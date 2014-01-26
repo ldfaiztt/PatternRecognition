@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package patternrecognition;
 import java.util.Set;
@@ -25,13 +20,13 @@ public class TopHeavy extends Classifier{
     public void processTrainingData(){
         //first set (c's)
         hist1 = new Histogram();
-        for(int i = 0; i < data.dataSets.get(0).size(); i++){
-            hist1.tally(topHeavy(data.dataSets.get(0).get(i)));
+        for(int i = 0; i < data.letterSets.get(0).size(); i++){
+            hist1.tally(topHeavy(data.letterSets.get(0).get(i)));
         }
         hist2 = new Histogram();
         //second set (e's)
-        for(int i = 0; i < data.dataSets.get(1).size(); i++){
-            hist2.tally(topHeavy(data.dataSets.get(1).get(i)));
+        for(int i = 0; i < data.letterSets.get(1).size(); i++){
+            hist2.tally(topHeavy(data.letterSets.get(1).get(i)));
         }
     }
     public TopHeavyError calculateThreshold(){

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package patternrecognition;
 import java.io.BufferedReader;
@@ -17,21 +12,32 @@ import java.io.FileNotFoundException;
 public class Dataset {
     private static final boolean silent = true;
     //outer arraylist contains the arraylists containing all of one type of letter
-    public ArrayList<ArrayList<Letter>> dataSets;
+    public ArrayList<ArrayList<Letter>> letterSets;
     //filenames are in an array, for expansion later on to more types
     public Dataset(String[] trainingSetFilenames, int numDataSets, int beginningSet) throws InvalidImageFormatException, IOException{ 
-        dataSets = new ArrayList<>();
+        letterSets = new ArrayList<>();
         //create array
         for(int i = 0; i < trainingSetFilenames.length; i++){
             //new letter list for each classification of letter
-            dataSets.add(new ArrayList<Letter>());
+            letterSets.add(new ArrayList<Letter>());
             for(int j = 0; j < numDataSets; j++){
                 BufferedReader currentSet = new BufferedReader(new FileReader(trainingSetFilenames[i] + (j+beginningSet) + ".txt" ));
-                dataSets.get(i).addAll(readBuffer(currentSet)); //concatenate all in list from readbuffer into correct trainingset
+                letterSets.get(i).addAll(readBuffer(currentSet)); //concatenate all in list from readbuffer into correct trainingset
             }
         }
     }
-    public static ArrayList<Letter> readBuffer(BufferedReader reader) throws InvalidImageFormatException, IOException{
+    public Dataset(){
+        letterSets = new ArrayList<>();
+    }
+    public void addSet(String[] trainingSetFilenames) throws InvalidImageFormatException, IOException{
+        for(int i = 0; i < trainingSetFilenames.length; i++){
+            //new letter list for each classification of letter
+            letterSets.add(new ArrayList<Letter>());
+                BufferedReader currentSet = new BufferedReader(new FileReader(trainingSetFilenames[i]+ ".txt" ));
+                letterSets.get(i).addAll(readBuffer(currentSet)); //concatenate all in list from readbuffer into correct trainingset
+        }
+    }
+    private ArrayList<Letter> readBuffer(BufferedReader reader) throws InvalidImageFormatException, IOException{
         String line;
         ArrayList<Letter> letters = new ArrayList();
         boolean firstline = true;

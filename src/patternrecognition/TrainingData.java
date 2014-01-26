@@ -15,13 +15,15 @@ import java.io.FileNotFoundException;
  * @author Lucien
  */
 public class TrainingData {
-    ArrayList<ArrayList<Letter>> trainingSets;
-    public TrainingData(String[] trainingSetFilenames, int numTrainingSets) throws InvalidImageFormatException, IOException{
+    public ArrayList<ArrayList<Letter>> trainingSets;
+    public TrainingData(String[] trainingSetFilenames, int numTrainingSets, int beginningSet) throws InvalidImageFormatException, IOException{
         trainingSets = new ArrayList<>();
+        trainingSets.add(new ArrayList<Letter>());
         //
         for(int i = 0; i < trainingSetFilenames.length; i++){
+            trainingSets.add(new ArrayList<Letter>());
             for(int j = 0; j < numTrainingSets; j++){
-                BufferedReader currentSet = new BufferedReader(new FileReader(trainingSetFilenames[i] + j + ".txt" ));
+                BufferedReader currentSet = new BufferedReader(new FileReader(trainingSetFilenames[i] + (j+beginningSet) + ".txt" ));
                 trainingSets.get(i).addAll(readBuffer(currentSet));
             }
         }

@@ -17,14 +17,14 @@ public class PatternRecognition {
 //        ArrayList<Letter> cList = readBuffer(Creader);
 //        Histogram eHist = new Histogram();
 //        Histogram cHist = new Histogram();
-        String trainingDataSet1="HW2_data_c_";
-        String trainingDataSet2="HW2_data_e_";
+        String trainingDataSet1="data/HW2_data_c_";
+        String trainingDataSet2="data/HW2_data_e_";
         String[] trainingDataSets = new String[2];
         trainingDataSets[0] = trainingDataSet1;
         trainingDataSets[1] = trainingDataSet2;
         TrainingData trainingSets=null;
         try{
-             trainingSets = new TrainingData(trainingDataSets, numTrainingSets);
+             trainingSets = new TrainingData(trainingDataSets, numTrainingSets, 1);
         }catch(InvalidImageFormatException e){
             System.out.println("Image format error: please file formatting.");
             System.exit(1);

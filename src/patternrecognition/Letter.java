@@ -19,12 +19,5 @@ public class Letter{
             image[i]=new int[w];
         }
     }
-    public void processLetter(){
-        for(int i = 0; i < height; i++){
-            for(int j = 0; j < width; j++){
-                blackArea += image[i][j];
-            }
-        }
-    }
     
 }

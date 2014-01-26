@@ -85,7 +85,7 @@ public class TopHeavy extends Classifier{
         }
         thresholdDirection = toggle;
         threshold = currentPos;
-        double errorRate = ((double)currentTotal/(hist1.getTotalTallies()+hist2.getTotalTallies()))*100.0;
+        double errorRate = ((double)currentTotal/(hist1.getTotalTallies()+hist2.getTotalTallies()));
         TopHeavyError returns = new TopHeavyError(errorRate, currentHist1, currentHist2, hist1.getTotalTallies()+hist2.getTotalTallies());
         return returns;
     }
@@ -97,6 +97,9 @@ public class TopHeavy extends Classifier{
             return topHeavy(data)<threshold;
         }
         
+    }
+    public int getThreshold(){
+        return threshold;
     }
     private int topHeavy(Letter data){
         int classifier = 0;

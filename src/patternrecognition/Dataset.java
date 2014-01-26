@@ -15,16 +15,17 @@ import java.io.FileNotFoundException;
  * @author Lucien
  */
 public class Dataset {
+    private static final boolean silent = true;
     //outer arraylist contains the arraylists containing all of one type of letter
     public ArrayList<ArrayList<Letter>> dataSets;
     //filenames are in an array, for expansion later on to more types
-    public Dataset(String[] trainingSetFilenames, int numTrainingSets, int beginningSet) throws InvalidImageFormatException, IOException{ 
+    public Dataset(String[] trainingSetFilenames, int numDataSets, int beginningSet) throws InvalidImageFormatException, IOException{ 
         dataSets = new ArrayList<>();
         //create array
         for(int i = 0; i < trainingSetFilenames.length; i++){
             //new letter list for each classification of letter
             dataSets.add(new ArrayList<Letter>());
-            for(int j = 0; j < numTrainingSets; j++){
+            for(int j = 0; j < numDataSets; j++){
                 BufferedReader currentSet = new BufferedReader(new FileReader(trainingSetFilenames[i] + (j+beginningSet) + ".txt" ));
                 dataSets.get(i).addAll(readBuffer(currentSet)); //concatenate all in list from readbuffer into correct trainingset
             }
@@ -61,7 +62,9 @@ public class Dataset {
                 firstline = true;
             }
         }
-        System.out.println("Read in "+letters.size()+" letter images.");
+        if(!silent){
+            System.out.println("Read in "+letters.size()+" letter images.");
+        }
         return letters;
     }
     

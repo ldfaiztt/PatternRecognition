@@ -14,17 +14,19 @@ import java.io.FileNotFoundException;
  *
  * @author Lucien
  */
-public class TrainingData {
-    public ArrayList<ArrayList<Letter>> trainingSets;
-    public TrainingData(String[] trainingSetFilenames, int numTrainingSets, int beginningSet) throws InvalidImageFormatException, IOException{
-        trainingSets = new ArrayList<>();
-        trainingSets.add(new ArrayList<Letter>());
-        //
+public class Dataset {
+    //outer arraylist contains the arraylists containing all of one type of letter
+    public ArrayList<ArrayList<Letter>> dataSets;
+    //filenames are in an array, for expansion later on to more types
+    public Dataset(String[] trainingSetFilenames, int numTrainingSets, int beginningSet) throws InvalidImageFormatException, IOException{ 
+        dataSets = new ArrayList<>();
+        //create array
         for(int i = 0; i < trainingSetFilenames.length; i++){
-            trainingSets.add(new ArrayList<Letter>());
+            //new letter list for each classification of letter
+            dataSets.add(new ArrayList<Letter>());
             for(int j = 0; j < numTrainingSets; j++){
                 BufferedReader currentSet = new BufferedReader(new FileReader(trainingSetFilenames[i] + (j+beginningSet) + ".txt" ));
-                trainingSets.get(i).addAll(readBuffer(currentSet));
+                dataSets.get(i).addAll(readBuffer(currentSet)); //concatenate all in list from readbuffer into correct trainingset
             }
         }
     }

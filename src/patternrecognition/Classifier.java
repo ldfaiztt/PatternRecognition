@@ -11,19 +11,20 @@ package patternrecognition;
  * @author Lucien
  */
 public abstract class Classifier{
-    TrainingData data1;
-    TrainingData data2;
+    Dataset data;
     Histogram hist1;
     Histogram hist2;
     Classifier(){
     
     }
-    Classifier(TrainingData d1, TrainingData d2){
-        data1 = d1;
-        data2 = d2;
+    Classifier(Dataset d){
+        data = d;
     }
     public void processTrainingData(){
        hist1 = new Histogram();
        hist2 = new Histogram();
+    }
+    public boolean classifyData(Letter data){
+        return false;
     }
 }

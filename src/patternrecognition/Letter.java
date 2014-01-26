@@ -9,7 +9,6 @@ public class Letter{
     public final int width;
     public final int baseline;
     public int image[][];
-    public int blackArea;
     public Letter(int h, int w, int b){
         height = h;
         width = w;
@@ -19,5 +18,4 @@ public class Letter{
             image[i]=new int[w];
         }
     }
-    
 }

@@ -17,14 +17,14 @@ public class PatternRecognition {
 //        ArrayList<Letter> cList = readBuffer(Creader);
 //        Histogram eHist = new Histogram();
 //        Histogram cHist = new Histogram();
-        String trainingDataSet1="data/HW2_data_c_";
-        String trainingDataSet2="data/HW2_data_e_";
-        String[] trainingDataSets = new String[2];
-        trainingDataSets[0] = trainingDataSet1;
-        trainingDataSets[1] = trainingDataSet2;
-        TrainingData trainingSets=null;
+//        String trainingDataSet1="data/HW2_data_c_";
+//        String trainingDataSet2="data/HW2_data_e_";
+        String[] trainingDataSets = {"data/HW2_data_c_", "data/HW2_data_e_"};
+//        trainingDataSets[0] = trainingDataSet1;
+//        trainingDataSets[1] = trainingDataSet2;
+        Dataset trainingSets=null;
         try{
-             trainingSets = new TrainingData(trainingDataSets, numTrainingSets, 1);
+             trainingSets = new Dataset(trainingDataSets, numTrainingSets, 1);
         }catch(InvalidImageFormatException e){
             System.out.println("Image format error: please file formatting.");
             System.exit(1);
@@ -32,6 +32,11 @@ public class PatternRecognition {
             System.out.println("File read error: file does not exist, has insufficient permissions, or had unexpected difficulties while reading.");
             System.exit(2);
         }
+        TopHeavy eAndC = new TopHeavy(trainingSets);
+        
+        eAndC.processTrainingData();
+        TopHeavyError err = eAndC.calculateThreshold();
+        System.out.format("Error: %.4f%%; c:%d, e:%d out of %d total. \n", err.errorRate, err.hist1error,err.hist2error, err.totalSamples);
         
     
         

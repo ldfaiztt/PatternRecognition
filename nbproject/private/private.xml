@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Lucien/Source/Java/PatternRecognition/src/patternrecognition/Dataset.java</file>
+            <file>file:/C:/Users/Lucien/Source/Java/PatternRecognition/src/patternrecognition/InvalidImageFormatException.java</file>
+            <file>file:/C:/Users/Lucien/Source/Java/PatternRecognition/src/patternrecognition/Classifier.java</file>
+            <file>file:/C:/Users/Lucien/Source/Java/PatternRecognition/src/patternrecognition/TopHeavy.java</file>
+            <file>file:/C:/Users/Lucien/Source/Java/PatternRecognition/src/patternrecognition/Letter.java</file>
+            <file>file:/C:/Users/Lucien/Source/Java/PatternRecognition/src/patternrecognition/PatternRecognition.java</file>
+            <file>file:/C:/Users/Lucien/Source/Java/PatternRecognition/src/patternrecognition/TopHeavyError.java</file>
+            <file>file:/C:/Users/Lucien/Source/Java/PatternRecognition/src/patternrecognition/Histogram.java</file>
+            <file>file:/C:/Users/Lucien/Source/Java/PatternRecognition/src/patternrecognition/ThresholdError.java</file>
+        </group>
+    </open-files>
+</project-private>

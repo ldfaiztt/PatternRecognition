@@ -97,8 +97,8 @@ public class TopHeavy extends Classifier{
         return threshold;
     }
     private int topHeavy(Letter data){
-        int classifier = 0;
-        classifier = (int)java.lang.Math.floor(((100.0*topArea(data))/bottomArea(data)+0.5));
+        int classifier;
+        classifier = (int)Math.floor(((100.0*topArea(data))/bottomArea(data)+0.5));
         return classifier;
     }
     private int topArea(Letter data){
